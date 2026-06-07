@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Are You?</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:400px;
+    background:#111;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,255,255,0.1);
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    background:white;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#dashboard{
+    display:none;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#00ff88;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN PAGE -->
+    <div id="login">
+        <h2>Login</h2>
+
+        <input type="text" id="username" placeholder="Username">
+
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="error"></p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard">
+        <h2>Who are you?</h2>
+
+        <select id="person">
+            <option value="">-- Select Your Name --</option>
+            <option>Himanshu.y</option>
+            <option>Arya Pratap</option>
+            <option>Arjun</option>
+            <option>Advit</option>
+            <option>Guruveer</option>
+            <option>Shaury Shekhar</option>
+            <option>Archit</option>
+            <option>Coldxback</option>
+            <option>Pradeep Singh</option>
+            <option>Archana Singh</option>
+            <option>Another Guy</option>
+        </select>
+
+        <button onclick="showMessage()">Submit</button>
+
+        <p id="result"></p>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if(user === "Mayanksingh" && pass === "mayank"){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+    } else {
+        document.getElementById("error").innerText =
+        "Invalid Username or Password!";
+    }
+}
+
+function showMessage() {
+
+    const choice = document.getElementById("person").value;
+    let message = "";
+
+    switch(choice){
+
+        case "Arjun":
+            message = "Mota Badmash";
+            break;
+
+        case "Advit":
+            message = "Chomu";
+            break;
+
+        case "Himanshu.y":
+            message = "May be his aura getting leaked by his nose";
+            break;
+
+        case "Arya Pratap":
+            message = "Developer of this web";
+            break;
+
+        case "Guruveer":
+            message = "Gora Chashmish";
+            break;
+
+        case "Shaury Shekhar":
+            message = "Padhaku Chashmish";
+            break;
+
+        case "Coldxback":
+            message = "UNC Owner";
+            break;
+
+        case "Archana Singh":
+            message = "Mommy";
+            break;
+
+        case "Pradeep Singh":
+            message = "Daddy";
+            break;
+
+        case "Archit":
+            message = "Chutiya Ladka";
+            break;
+
+        case "Another Guy":
+            message = "Random guy appeared on web";
+            break;
+
+        default:
+            message = "Please select an option.";
+    }
+
+    document.getElementById("result").innerText = message;
+}
+</script>
+
+</body>
+</html>
